@@ -5,4 +5,8 @@
 
 ## 💻 Developer
 
+<<<<<<< HEAD
 - BurakKontas <https://github.com/BurakKontas>
+=======
+- BurakKontas <https://github.com/BurakKontas>
+>>>>>>> 3cd74f261716dd84b0888e307fdb4783345bd7f7
