@@ -4,5 +4,5 @@
 - Run `yarn start` or `npm run start` to try it out.
 
 ## 💻 Developer
-- BurakKontass https://github.com/BurakKontas
+- BurakKontas https://github.com/BurakKontas
 
