@@ -10,7 +10,7 @@ Navigation:
     + Button kullanmayıp herşeyi pressable ile yapıp tüm aygıtlarda aynı şeyi elde edeceğiz
     + Stackların headeri özelleştirilecek onuda dinamik yapıcaz ayrı dosyada tek yazıp stackScreenOptions gibi export edip her stak'a uygulayacağız uygulayacağız
     + Drawerde screen gözükmeyecek sadece stackı yönetmek ve giriş çıkış dark mod ayarlar için kullanılacak
-    - Drawer giriş çıkış darkMode butonları çözülecek
+    - Drawer giriş çıkış darkMode butonları çözülecek (firebase giriş çıkış)
     + Font eklenecek
     + CheckMenu background image bulunacak yazı
 
@@ -32,14 +32,14 @@ Components:
     - Hakkında
 
 Drawer: 
-    - Profil önizleme (basıncada profil ekranına gidecek)
-    - Ana sayfa
-    - Favorilerim
-    - Search Screen
-    - Geçmiş
+    + Profil önizleme (basıncada profil ekranına gidecek)
+    + Ana sayfa
+    + Favorilerim
+    + Search Screen
+    + Geçmiş
     
-    - Uygulama Bilgisi (kimin tarafından ne amaçla yapıldığı vs. Copyright veya şirket reklamı gibi düşünülebilir)
-    - Giriş yap / Çıkış yap
+    + Uygulama Bilgisi (kimin tarafından ne amaçla yapıldığı vs. Copyright veya şirket reklamı gibi düşünülebilir)
+    + Giriş yap / Çıkış yap
     Dükkan:
         - QR okut.
         - Fotoğraf Düzenle (Dükkan fotoğrafı yada ürün fotoğrafı fiyat düzenleme olmayacak fiyatları biz belirliyoruz)

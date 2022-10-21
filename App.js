@@ -1,4 +1,5 @@
 import React from "react";
+import { Text, Dimensions, View } from "react-native";
 
 //navigation
 import { createDrawerNavigator } from "@react-navigation/drawer";
@@ -7,6 +8,13 @@ import { NavigationContainer } from "@react-navigation/native";
 //theme
 import { ThemeProvider } from "styled-components/native"
 import { theme } from "./src/theme";
+
+//screens
+import { SearchScreen } from "./src/screens/Search";
+import { ProfileScreen } from "./src/screens/Profile";
+import { FavoritesScreen } from './src/screens/Favorites';
+import { HistoryScreen } from "./src/screens/History";
+import { InfoScreen } from './src/screens/Info';
 
 //navigators
 import { Home } from "./src/navigators/Home";
@@ -22,6 +30,7 @@ import * as SplashScreen from 'expo-splash-screen';
 
 import store from './src/redux/store'
 import { Provider } from 'react-redux'
+
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -62,7 +71,6 @@ export default function App() {
               backgroundColor:theme.background,
             },
             headerShown: false,
-            headerTransparent: true,
             headerTintColor:theme.text.header,
             drawerActiveBackgroundColor:theme.background,
             drawerActiveTintColor:theme.text.main,
@@ -77,6 +85,21 @@ export default function App() {
               drawerIcon: ({color, size}) => <Ionicons name={"home"} color={color} size={size} />
               }} 
             />
+            <Drawer.Screen name="SearchScreen" component={SearchScreen} 
+            options={{
+              headerShown:true,
+              drawerLabel:"Arama",
+              headerTitle:"",
+              headerLeft:(props) => <View style={{backgroundColor:"grey",flex:1,width:Dimensions.get("window").width,alignItems:"center",justifyContent:"center"}}>
+                <Text style={{color:"white",fontSize:18, fontFamily:"Lato-Bold"}} {...props}>Arama</Text>
+              </View>,
+              drawerIcon: ({color, size}) => <Ionicons name={"home"} color={color} size={size} />
+              }} 
+            />
+            <Drawer.Screen name="Profile" component={ProfileScreen} />
+            <Drawer.Screen name="Favorites" component={FavoritesScreen} />
+            <Drawer.Screen name="History" component={HistoryScreen} />
+            <Drawer.Screen name="Info" component={InfoScreen} />
           </Drawer.Navigator>
         </NavigationContainer>
       </ThemeProvider>
