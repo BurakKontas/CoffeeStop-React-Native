@@ -7,18 +7,9 @@ import { SafeAreaView } from "react-native";
 
 import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
 import TabNavigation from "../navigators/TabNavigation";
+import { ProductModal } from "../components/ProductModal";
+import { Provider } from "react-native-paper";
  
-const FirstRoute = () => (
-	<View style={{ flex: 1, backgroundColor: 'grey'}}>
-  	<Text>Tab One</Text>
-	</View>
-);
-const SecondRoute = () => (
-	<View style={{ flex: 1, backgroundColor: 'darkgrey'}} >
-  	<Text style={{color:"white"}}>Tab Two</Text>
-	</View>
-);
-
 const array = [
     {
         id:1,
@@ -33,9 +24,19 @@ export const CafeDetailsScreen = ({ route, navigation }) => {
     const { cafeId }= route.params;
     const cafe = array.find(arr => arr.id === cafeId);
     const width = Dimensions.get('window').width;
+    const [visible, setVisible] = React.useState(false);
+    const [product, setProduct] = React.useState(null)
+
+    const showModal = () => setVisible(true);
+    const hideModal = () => {
+      setVisible(false);
+      setProduct(null);
+    }
 
     return (
+        <Provider>
         <ScrollView>
+        <ProductModal visible={visible} onDismiss={hideModal} product={product} />
         <ItemWithoutText
         image={cafe.image}
         width={width}
@@ -57,7 +58,8 @@ export const CafeDetailsScreen = ({ route, navigation }) => {
             <Text style={{ fontSize: 14, color: "grey", fontFamily:'PlusJakartaSans-Regular', marginTop:6,marginRight:15}}>Kapanış: 02:00</Text>
           </View>
           </View>
-          <TabNavigation />
+          <TabNavigation setProduct={setProduct} showModal={showModal} />
         </ScrollView>
+          </Provider>
     )
 }

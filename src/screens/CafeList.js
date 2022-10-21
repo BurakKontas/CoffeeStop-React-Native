@@ -20,9 +20,6 @@ const array = [
     subname: "Ayşekadın",
     image:
       "https://cdn.nerde.co/LeMan%20Kultur%20Edirne%201.jpg-1531488685.jpeg",
-    onPress() {
-      console.log("Pressed");
-    },
   },
   {
     id:1,
@@ -30,9 +27,6 @@ const array = [
     subname: "Ayşekadın",
     image:
       "https://cdn.nerde.co/LeMan%20Kultur%20Edirne%201.jpg-1531488685.jpeg",
-    onPress() {
-      console.log("Pressed");
-    },
   },
   {
     id:1,
@@ -40,9 +34,6 @@ const array = [
     subname: "Ayşekadın",
     image:
       "https://cdn.nerde.co/LeMan%20Kultur%20Edirne%201.jpg-1531488685.jpeg",
-    onPress() {
-      console.log("Pressed");
-    },
   },
   {
     id:1,
@@ -50,9 +41,6 @@ const array = [
     subname: "Ayşekadın",
     image:
       "https://cdn.nerde.co/LeMan%20Kultur%20Edirne%201.jpg-1531488685.jpeg",
-    onPress() {
-      console.log("Pressed");
-    },
   },
 ];
 
@@ -67,11 +55,13 @@ export function CafeListScreen() {
         <Carousel
           loop
           width={width}
-          height={220}
+          height={210}
           autoPlay={true}
           data={array}
           mode={'parallax'}
+          pagingEnabled={true}
           scrollAnimationDuration={1000}
+          modeConfig={{parallaxScrollingOffset:50,parallaxScrollingScale:0.9,parallaxAdjacentItemScale:0.7}}
           //onSnapToItem={(index) => {currentIndex = index}}
           renderItem={({ item, index }) => (
             <View
@@ -96,31 +86,21 @@ export function CafeListScreen() {
           )}
         />
       </View>
-      <View
-        style={{
-          alignSelf: "center",
-          width: "95%",
-          height: 100,
-          marginTop: 10,
-          justifyContent: "space-between",
-        }}
-      >
-        <View style={{ flexDirection: "row" }}>
+
+        <View style={{ flexDirection: "row", marginVertical:20, alignSelf:"center" }}>
           <TouchableWithoutFeedback
             onPress={() => {
-              console.log("Tap");
+              toggleOverlay();
             }}
           >
             <View
               style={{
                 backgroundColor: "white",
-                width: "50%",
-                borderBottomLeftRadius: 30,
-                borderTopLeftRadius: 30,
+                width: "100%",
+                borderRadius: 30,
                 height: 40,
                 paddingLeft: 20,
                 flexDirection: "row",
-                justifyContent: "center",
                 alignItems: "center",
               }}
             >
@@ -135,86 +115,11 @@ export function CafeListScreen() {
                   paddingRight: 7.5,
                 }}
               >
-                Ne Aramak İstersiniz
+                Ne Aramak İstersiniz ?
               </Text>
             </View>
           </TouchableWithoutFeedback>
-          <View
-            style={{
-              backgroundColor: "white",
-              height: 40,
-              flexDirection: "row",
-              flex: 1,
-              borderBottomRightRadius: 30,
-              borderTopRightRadius: 30,
-            }}
-          >
-            <Text
-              style={{
-                color: "grey",
-                fontSize: 25,
-                paddingLeft: 20,
-                marginTop: 3,
-              }}
-            >
-              |
-            </Text>
-            <TouchableOpacity
-              style={{
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Text style={{ marginHorizontal: 10 }}>Filtrele & Sırala</Text>
-              <View>
-                <Feather name="filter" size={24} color="black" />
-              </View>
-            </TouchableOpacity>
-          </View>
         </View>
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-            width: "85%",
-            alignSelf: "center",
-          }}
-        >
-          <TouchableOpacity
-            style={{
-              height: 55,
-              width: 65,
-              backgroundColor: "white",
-              borderRadius: 10,
-            }}
-          ></TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              height: 55,
-              width: 65,
-              backgroundColor: "white",
-              borderRadius: 10,
-            }}
-          ></TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              height: 55,
-              width: 65,
-              backgroundColor: "white",
-              borderRadius: 10,
-            }}
-          ></TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              height: 55,
-              width: 65,
-              backgroundColor: "white",
-              borderRadius: 10,
-            }}
-          ></TouchableOpacity>
-        </View>
-      </View>
       <Text
         style={{
           color: "white",
@@ -247,14 +152,10 @@ export function CafeListScreen() {
                 name={item.name}
                 subname={item.subname}
                 image={item.image}
-                onPress={() => {
-                  navigation.navigate("CafeDetails",{
-                    cafeId:item.id,
-                  })
-                }}
+                id={item.id}
                 width={width - 30}
                 height={180}
-              ></ItemsVertical>
+              />
             </View>
           )}
         />
@@ -276,62 +177,14 @@ export function CafeListScreen() {
         }}
         showsHorizontalScrollIndicator={false}
       >
-        <ItemsHorizontal
-          name={"Leman Kültür Edirne"}
-          subname={"Ayşekadın"}
-          image={
-            "https://cdn.nerde.co/LeMan%20Kultur%20Edirne%201.jpg-1531488685.jpeg"
-          }
-        ></ItemsHorizontal>
-        <ItemsHorizontal
-          name={"Leman Kültür Edirne"}
-          subname={"Ayşekadın"}
-          image={
-            "https://cdn.nerde.co/LeMan%20Kultur%20Edirne%201.jpg-1531488685.jpeg"
-          }
-        ></ItemsHorizontal>
-        <ItemsHorizontal
-          name={"Leman Kültür Edirne"}
-          subname={"Ayşekadın"}
-          image={
-            "https://cdn.nerde.co/LeMan%20Kultur%20Edirne%201.jpg-1531488685.jpeg"
-          }
-        ></ItemsHorizontal>
-        <ItemsHorizontal
-          name={"Leman Kültür Edirne"}
-          subname={"Ayşekadın"}
-          image={
-            "https://cdn.nerde.co/LeMan%20Kultur%20Edirne%201.jpg-1531488685.jpeg"
-          }
-        ></ItemsHorizontal>
-        <ItemsHorizontal
-          name={"Leman Kültür Edirne"}
-          subname={"Ayşekadın"}
-          image={
-            "https://cdn.nerde.co/LeMan%20Kultur%20Edirne%201.jpg-1531488685.jpeg"
-          }
-        ></ItemsHorizontal>
-        <ItemsHorizontal
-          name={"Leman Kültür Edirne"}
-          subname={"Ayşekadın"}
-          image={
-            "https://cdn.nerde.co/LeMan%20Kultur%20Edirne%201.jpg-1531488685.jpeg"
-          }
-        ></ItemsHorizontal>
-        <ItemsHorizontal
-          name={"Leman Kültür Edirne"}
-          subname={"Ayşekadın"}
-          image={
-            "https://cdn.nerde.co/LeMan%20Kultur%20Edirne%201.jpg-1531488685.jpeg"
-          }
-        ></ItemsHorizontal>
-        <ItemsHorizontal
-          name={"Leman Kültür Edirne"}
-          subname={"Ayşekadın"}
-          image={
-            "https://cdn.nerde.co/LeMan%20Kultur%20Edirne%201.jpg-1531488685.jpeg"
-          }
-        ></ItemsHorizontal>
+        {array.map((item, i) => {
+          return <ItemsHorizontal 
+            id={item.id}
+            image={item.image}
+            name={item.name}
+            subname={item.subname}
+          />
+        })}
       </ScrollView>
     </Container>
   );

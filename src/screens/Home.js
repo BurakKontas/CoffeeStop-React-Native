@@ -15,15 +15,25 @@ import { ItemsVertical } from "../components/NewItems";
 import Carousel from 'react-native-reanimated-carousel';
 
 
-import { StackActions, useNavigation } from "@react-navigation/native";
+
+import { useNavigation } from "@react-navigation/native";
+
+// //redux
+// import { useDispatch, useSelector } from 'react-redux';
+// import { setDimensions } from "./redux/reducers/dimensions";
+// const dispatch = useDispatch();
+// React.useLayoutEffect(() => {
+//   window.addEventListener('resize', () => {
+//     dispatch(setDimensions({width:window.innerWidth,height:window.innerHeight}))
+//   })
+// });
+
 const array = [
   {
+    id:1,
     name:"Leman Kültür Edirne",
     subname:"Ayşekadın",
     image:"https://cdn.nerde.co/LeMan%20Kultur%20Edirne%201.jpg-1531488685.jpeg",
-    onPress() {
-      console.log("Pressed")
-    }
   },
 ]
 
@@ -49,7 +59,7 @@ export function HomeScreen() {
           alignSelf: "center",
         }}
         onPress={() => {
-          navigation.dispatch(StackActions.push("CafeList"))
+          navigation.navigate("CafeList")
         }}
       >
         <ImageBackground 
@@ -129,7 +139,7 @@ export function HomeScreen() {
                     alignItems:"center"
                 }}
               >
-                <ItemsVertical name={item.name} subname={item.subname} image={item.image} onPress={item.onPress} width={width-50} height={180} favorite={true} />
+                <ItemsVertical name={item.name} subname={item.subname} image={item.image} id={item.id} width={width-50} height={180} favorite={true} />
               </View>
           )}
       />

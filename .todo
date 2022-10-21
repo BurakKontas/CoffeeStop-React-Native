@@ -1,3 +1,10 @@
+Backend:
+    - QR kod okunduğunda socket io kurucaz o direk sepeti boşaltma emiri vercek ve sepet öyle boşalacak sonrasında local bir timer kurup değerlendirme yapmasını isticez (push notification atıcak)
+
+Redux:
+    - Sepet redux ile yapılacak
+    - Sepete eklendiğinde ürün id eğer sepette varsa sepetten adedi çekip sepete ekle yerine + {adet} - şeklinde yazdırıcaz
+
 Navigation:
     + Drawer navigation headeri kapatılacak header açma kapamayı stack header'e ekleyeceğiz ki <- tuşunu bir şekilde koyalım yada stack da geri çıkma sağa çekerek olcak
     + Button kullanmayıp herşeyi pressable ile yapıp tüm aygıtlarda aynı şeyi elde edeceğiz
@@ -10,8 +17,8 @@ Navigation:
 Screens:
     + Main Screen
     + Dükkanlar listesi (sıralama seçenekli)
-    - Ürünler listesi (sub menü ve üstte tab menü seçenekli)
-    - Arama sonucu ekranı (bir arama yapınca orda gösterecek yanıtları arama çubuğuna basınca direk modal olarak gelicek böylece geri gidincede aynı yerden devam edecek (kısaca çubuğu touchable opacity yapıp modalın en üstüne koyalım text inputu))
+    + Ürünler listesi (sub menü ve üstte tab menü seçenekli)
+    - Arama ekranı (search screen yönlendirecek)
     - Dükkan detayları (google maps vs)
     - Sepet (ürünleri toplu satın alma imkanı tanıyacaz ve hepsi qr da saklı olacak)
     - Profil ekranı 
@@ -21,4 +28,19 @@ Screens:
 Components:
     - Getir dükkanlar card
     - Filtreleme alanları
+    - Yorumlar (aldığı ürünler bir buton olarak görünecek basınca aldığı ürünleri ve miktarı görüntülüyebilecekler)
+    - Hakkında
+
+Drawer: 
+    - Profil önizleme (basıncada profil ekranına gidecek)
+    - Ana sayfa
+    - Favorilerim
+    - Search Screen
+    - Geçmiş
+    
+    - Uygulama Bilgisi (kimin tarafından ne amaçla yapıldığı vs. Copyright veya şirket reklamı gibi düşünülebilir)
+    - Giriş yap / Çıkış yap
+    Dükkan:
+        - QR okut.
+        - Fotoğraf Düzenle (Dükkan fotoğrafı yada ürün fotoğrafı fiyat düzenleme olmayacak fiyatları biz belirliyoruz)
 

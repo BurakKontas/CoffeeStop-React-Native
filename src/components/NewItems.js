@@ -2,10 +2,11 @@ import React from "react";
 import { View, Image, ImageBackground, Text, TouchableOpacity, Dimensions } from "react-native";
 import { Card } from "./Card";
 import { AntDesign } from '@expo/vector-icons'; 
+import { useNavigation } from '@react-navigation/native';
 
-export const ItemsVertical = ({ image, name, subname, onPress, favorite=false, width = 300, height=180, }) => {
+export const ItemsVertical = ({ id, image, name, subname, favorite=false, width = 300, height=180, }) => {
     const [isFav, setIsFav] = React.useState(favorite);
-
+    const navigation = useNavigation();
     return (
         <Card style={{
             width:width,
@@ -15,7 +16,11 @@ export const ItemsVertical = ({ image, name, subname, onPress, favorite=false, w
             paddingTop:0,
             marginHorizontal:12,
         }}
-        onPress={onPress}
+        onPress={() => {
+          navigation.navigate("CafeDetails",{
+            cafeId:id,
+          })
+        }}
         >
             <ImageBackground
               source={{uri:image}}
@@ -48,9 +53,10 @@ export const ItemsVertical = ({ image, name, subname, onPress, favorite=false, w
     )
 }
 
-export const ItemsHorizontal = ({ image, name, subname, onPress, favorite=false, width = null, height=220, }) => {
+export const ItemsHorizontal = ({ id, image, name, subname, onPress, favorite=false, width = null, height=220, }) => {
   const [isFav, setIsFav] = React.useState(favorite);
   const widthDimensions = Dimensions.get('window').width;
+  const navigation = useNavigation();
 
   return (
       <Card style={{
@@ -62,7 +68,11 @@ export const ItemsHorizontal = ({ image, name, subname, onPress, favorite=false,
           alignSelf:"center",
           marginVertical:20
       }}
-      onPress={onPress}
+      onPress={() => {
+          navigation.navigate("CafeDetails",{
+            cafeId:id,
+          })
+        }}
       >
           <ImageBackground
             source={{uri:image}}
@@ -95,8 +105,9 @@ export const ItemsHorizontal = ({ image, name, subname, onPress, favorite=false,
   )
 }
 
-export const ItemWithoutText = ({ image, favorite=false, width = 300, height=180, onPress }) => {
+export const ItemWithoutText = ({ id, image, favorite=false, width = 300, height=180, onPress }) => {
   const [isFav, setIsFav] = React.useState(favorite);
+  const navigation = useNavigation();
 
   return (
       <Card style={{
