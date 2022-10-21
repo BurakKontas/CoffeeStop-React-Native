@@ -1,0 +1,24 @@
+Navigation:
+    + Drawer navigation headeri kapatılacak header açma kapamayı stack header'e ekleyeceğiz ki <- tuşunu bir şekilde koyalım yada stack da geri çıkma sağa çekerek olcak
+    + Button kullanmayıp herşeyi pressable ile yapıp tüm aygıtlarda aynı şeyi elde edeceğiz
+    + Stackların headeri özelleştirilecek onuda dinamik yapıcaz ayrı dosyada tek yazıp stackScreenOptions gibi export edip her stak'a uygulayacağız uygulayacağız
+    + Drawerde screen gözükmeyecek sadece stackı yönetmek ve giriş çıkış dark mod ayarlar için kullanılacak
+    - Drawer giriş çıkış darkMode butonları çözülecek
+    + Font eklenecek
+    + CheckMenu background image bulunacak yazı
+
+Screens:
+    + Main Screen
+    + Dükkanlar listesi (sıralama seçenekli)
+    - Ürünler listesi (sub menü ve üstte tab menü seçenekli)
+    - Arama sonucu ekranı (bir arama yapınca orda gösterecek yanıtları arama çubuğuna basınca direk modal olarak gelicek böylece geri gidincede aynı yerden devam edecek (kısaca çubuğu touchable opacity yapıp modalın en üstüne koyalım text inputu))
+    - Dükkan detayları (google maps vs)
+    - Sepet (ürünleri toplu satın alma imkanı tanıyacaz ve hepsi qr da saklı olacak)
+    - Profil ekranı 
+    - Splash screenler (ilk girenler için)
+    - Bize ulaşın gibi bir şey bize öneri şikayet gönderebilecekleri bir şey
+
+Components:
+    - Getir dükkanlar card
+    - Filtreleme alanları
+
