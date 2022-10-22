@@ -9,7 +9,9 @@ import { createTabs } from '../components/ItemDetailsTabs';
 
 
 function changeTab(goto,ref) {
-  ref.current.scrollTo({index:goto});
+  const current = ref.current.getCurrentIndex();
+  if(current > goto) ref.current.prev({count:current-goto})
+  else ref.current.scrollTo({index:goto, animated:true});
 }
 
 
@@ -29,12 +31,10 @@ export default function TabNavigation({ setProduct, showModal }) {
         </View>
         <Carousel
           ref={carouselRef}
-          loop
           width={width}
           height={height-105}
           autoPlay={false}
           data={createTabs(width,height,setProduct,showModal)}
-          snapEnabled={false}
           enabled={false}
           //onSnapToItem={(index) => {currentIndex = index}}
           renderItem={({ item, index }) => (

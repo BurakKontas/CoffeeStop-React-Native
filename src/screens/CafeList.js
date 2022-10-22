@@ -179,6 +179,7 @@ export function CafeListScreen() {
       >
         {array.map((item, i) => {
           return <ItemsHorizontal 
+            key={i}
             id={item.id}
             image={item.image}
             name={item.name}

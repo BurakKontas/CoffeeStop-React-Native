@@ -3,6 +3,7 @@ import { Text, View, ScrollView, Image } from 'react-native';
 import { Divider } from 'react-native-elements';
 import { Modal, Searchbar } from 'react-native-paper';
 import { TouchableOpacity } from 'react-native';
+import { CommentCard } from './CommentCard';
 
 const data = {
     menu:{
@@ -70,15 +71,55 @@ const data = {
         comment:"Nice"
       },
       {
+        rating:4,
+        date:"201022T235411",
+        comment:"Nice"
+      },
+      {
+        rating:4,
+        date:"201022T235411",
+        comment:"Nice"
+      },
+      {
+        rating:4,
+        date:"201022T235411",
+        comment:"Nice"
+      },
+      {
+        rating:4,
+        date:"201022T235411",
+        comment:"Nice"
+      },
+      {
+        rating:4,
+        date:"201022T235411",
+        comment:"Nice"
+      },
+      {
+        rating:4,
+        date:"201022T235411",
+        comment:"Nice"
+      },
+      {
+        rating:4,
+        date:"201022T235411",
+        comment:"Nice"
+      },
+      {
+        rating:4,
+        date:"201022T235411",
+        comment:"Nice"
+      },
+      {
         rating:1,
         date:"201022T233211",
-        comment:"The Worst"
+        comment:"The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst The Worst "
       },
     ],
     about:{
-      fullAddress:"",
-      opening:"",
-      closing:"",
+      fullAddress:"1. Murat, Zübeyde Hanım Cd. 1. Sokak D:no3, 22030 Edirne Merkez/Edirne",
+      opening:"08:00",
+      closing:"01:00",
     }
   }
 
@@ -86,10 +127,10 @@ export function createTabs(width,height,setProduct,showModal) {
     return ( 
       [
         {
-          component() {
+          component() { //menu
             return <View>
-            <View style={{marginVertical:15,marginHorizontal:5}}>
-            <Searchbar placeholder='Ne Arıyorsun ?'  />
+            <View style={{marginBottom:15,marginHorizontal:5}}>
+            {/* <Searchbar placeholder='Ne Arıyorsun ?'  /> */}
             </View>
             {data.menu.submenus.map((menu,index) => {
               return (
@@ -100,7 +141,6 @@ export function createTabs(width,height,setProduct,showModal) {
                 </View>
                   <ScrollView>
                     {menu.array.map((product,index) => {
-                        const containerStyle = {backgroundColor: 'white', padding: 20};
                       return (
                         <TouchableOpacity key={product.id} onPress={(() => {setProduct(product);showModal()})}>
                         <View style={{flexDirection:"row",width:"100%", backgroundColor:"grey"}}>
@@ -122,16 +162,28 @@ export function createTabs(width,height,setProduct,showModal) {
           }
         },
         {
-          component() {
-            return <View>
-              <Text>Comments</Text>
+          component() { //comments
+            return <View style={{backgroundColor:"lightgrey",flex:1, minHeight:height-105}}>
+              <ScrollView>
+                <Text style={{marginVertical:10,marginLeft:10,color:"grey"}}>Yorumlar</Text>
+                {data.comments.map((comment, index) => {
+                  return <CommentCard comment={comment} />
+                })}
+              </ScrollView>
             </View>
           }
         },
         {
-        component() {
+        component() { //about
           return <View>
-            <Text>About</Text>
+            <Text style={{marginVertical:10,marginLeft:10,color:"grey"}}>Açık Adres</Text>
+            <View style={{borderWidth:1,borderRadius:10,marginHorizontal:10,padding:10, backgroundColor:"white", justifyContent:"space-between"}}>
+              <Text>{data.about.fullAddress}</Text>
+            </View>
+              <Text style={{marginVertical:10,marginLeft:10,color:"grey"}}>Açılış/Kapanış</Text>
+              <View style={{borderWidth:1,borderRadius:10,marginHorizontal:10,padding:10, backgroundColor:"white", marginBottom:10,justifyContent:"space-between"}}>
+              <Text>{data.about.opening}/{data.about.closing}</Text>
+            </View>
           </View>
           }
         }, 

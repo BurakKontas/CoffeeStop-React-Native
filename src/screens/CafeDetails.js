@@ -55,11 +55,11 @@ export const CafeDetailsScreen = ({ route, navigation }) => {
           </View>
           <View style={{flexDirection:"row",justifyContent:"space-between",paddingBottom:30}}>
             <Text style={{ fontSize: 20, color: "grey", fontFamily:'PlusJakartaSans-Regular'}}>{cafe.subname}</Text>
-            <Text style={{ fontSize: 14, color: "grey", fontFamily:'PlusJakartaSans-Regular', marginTop:6,marginRight:15}}>Kapanış: 02:00</Text>
+            <Text style={{ fontSize: 14, color: "grey", fontFamily:'PlusJakartaSans-Regular', marginTop:6,marginRight:15}}>Kapanış: 01:00</Text>
           </View>
           </View>
           <TabNavigation setProduct={setProduct} showModal={showModal} />
-        </ScrollView>
+          </ScrollView>
           </Provider>
     )
 }
