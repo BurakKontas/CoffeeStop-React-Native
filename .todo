@@ -14,6 +14,9 @@ Navigation:
     + Font eklenecek
     + CheckMenu background image bulunacak yazı
 
+Package:
+    - Toast eklenecek
+
 Screens:
     + Main Screen
     + Dükkanlar listesi (sıralama seçenekli)

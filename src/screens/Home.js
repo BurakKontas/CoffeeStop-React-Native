@@ -13,20 +13,11 @@ import { Card } from "./../components/Card";
 import { theme } from './../theme';
 import { ItemsVertical } from "../components/NewItems";
 import Carousel from 'react-native-reanimated-carousel';
-
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { useNavigation } from "@react-navigation/native";
+import { getCart, addToCart, clearCart, updateCart } from './../Functions/Cart';
 
-// //redux
-// import { useDispatch, useSelector } from 'react-redux';
-// import { setDimensions } from "./redux/reducers/dimensions";
-// const dispatch = useDispatch();
-// React.useLayoutEffect(() => {
-//   window.addEventListener('resize', () => {
-//     dispatch(setDimensions({width:window.innerWidth,height:window.innerHeight}))
-//   })
-// });
 
 const array = [
   {
@@ -36,6 +27,16 @@ const array = [
     image:"https://cdn.nerde.co/LeMan%20Kultur%20Edirne%201.jpg-1531488685.jpeg",
   },
 ]
+
+// addToCart({id:2,quantity:3})
+
+// updateCart({id:2,quantity:0})
+
+// getCart().then(r => {
+//   console.log(r)
+// })
+
+// clearCart()
 
 export function HomeScreen() {
 
