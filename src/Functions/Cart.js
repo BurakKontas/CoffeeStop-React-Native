@@ -1,6 +1,6 @@
 import React from 'react';
 import { getData, setData, clearData } from './AsyncStorage';
-import { resetCartQuantity, updateCartQuantity, updateCartState } from '../redux/reducers/cart';
+import { resetCartQuantity, updateCartPrice, updateCartQuantity, updateCartState } from '../redux/reducers/cart';
 import { useDispatch } from 'react-redux';
 import { View } from 'react-native';
 
@@ -19,11 +19,14 @@ export class Cart {
 
     async updateState (){
         var sum = 0;
+        var price = 0;
         await this.getCart().then(r => {
             r.forEach((obj) => {
                 sum += obj.quantity;
+                price += obj.price*obj.quantity;
             })
             this.#dispatch(updateCartQuantity(sum))
+            this.#dispatch(updateCartPrice(price.toFixed(2)))
         }).catch((err) => {
             console.error(err)
         })
