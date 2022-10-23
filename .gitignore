@@ -92,6 +92,7 @@ project.xcworkspace
 
 # Android/IntelliJ
 #
+android/
 build/
 .idea
 .gradle
@@ -119,6 +120,7 @@ buck-out/
 
 # Expo
 .expo/
+.expo-shared/
 web-build/
 dist/
 
