@@ -7,6 +7,7 @@ import {
     StatusBar,
     Pressable,
     Alert,
+    Image
   } from 'react-native';
 import SwipeableFlatList from 'react-native-swipeable-list';
 
@@ -30,10 +31,22 @@ const Item = ({ item }) => {
     return (
         <View style={{
             backgroundColor: '#121212',
-            height: 80,
+            miHheight: 80,
             flexDirection: 'row',
             padding: 10,
         }}>
+        {(item.img !== null) ? 
+        <Image 
+        source={{uri:item.img}}
+        style={{width:80,height:"100%"}}
+        /> : null}
+        <View style={{flexDirection:"column", marginLeft:15, minWidth:"70%"}}>
+          <Text style={{color:"white",fontWeight:"bold"}}>{item.name}</Text>
+          <Text style={{color:"white", width:"50%"}}>{item.description}</Text>
+          <View>
+            <Text style={{color:"red"}}>₺{(item.price*item.quantity).toFixed(2)} ({item.quantity})</Text>
+          </View>
+        </View>
         </View>
     );
   };
@@ -44,6 +57,11 @@ async function updateCartState(setData,cart) {
   })
   cart.updateState();
 }
+
+function renderItemSeparator() {
+  return <View style={{backgroundColor:"red",height:1,opacity:0.5}} />;
+}
+
 
 export const CartList = () => {
     const [data, setData] = React.useState(null);
@@ -90,6 +108,7 @@ export const CartList = () => {
         maxSwipeDistance={80}
         renderQuickActions={({index, item}) => QuickActions(index, item)}
         shouldBounceOnMount={true}
+        ItemSeparatorComponent={renderItemSeparator}
       />
     );
 }

@@ -25,7 +25,7 @@ export const ProductModal = ({ product, visible, onDismiss }) => {
                             <View>
                                 <TouchableOpacity style={{alignSelf:"flex-end",width:((product.img !== null) ? "45%" : "30%")}}
                                     onPress={() => {
-                                        cart.addToCart({id:product.id,quantity:1})
+                                        cart.addToCart({...product,quantity:2})
                                     }}
                                 >
                                     <Text style={{fontFamily:"FuzzyBubbles-Bold"}}>Sepete Ekle</Text> 

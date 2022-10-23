@@ -37,7 +37,7 @@ export function HomeScreen() {
   const dispatch = useDispatch()
   var cart = new Cart(dispatch);
   React.useLayoutEffect(() => {
-    cart.addToCart({id:1,quantity:1})
+    cart.updateState();
   })
   const width = Dimensions.get('window').width;
 
@@ -48,8 +48,8 @@ export function HomeScreen() {
       <View
         style={{ alignSelf: "flex-start",marginLeft:40,marginBottom: 20, marginTop:10}}
       >
-        <Text style={{ fontSize: 25, color: "white", fontFamily:'McLaren-Regular'  }}>Eat And Enjoy</Text>
-        <Text style={{  fontSize: 25, color: "white", fontFamily:'McLaren-Regular'  }}>Quality Desserts 🍰</Text>
+        <Text style={{ fontSize: 25, color: "white", fontFamily:'McLaren-Regular' }}>Eat And Enjoy</Text>
+        <Text style={{  fontSize: 25, color: "white", fontFamily:'McLaren-Regular' }}>Quality Desserts 🍰</Text>
       </View>
       <Card
         style={{
