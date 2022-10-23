@@ -21,9 +21,9 @@ Screens:
     + Main Screen
     + Dükkanlar listesi (sıralama seçenekli)
     + Ürünler listesi (sub menü ve üstte tab menü seçenekli)
+    - Sepet (ürünleri toplu satın alma imkanı tanıyacaz ve hepsi qr da saklı olacak (encrypted şekilde sonra dükkan okuyunca decrypt atıcak))
     - Arama ekranı (search screen yönlendirecek)
     - Dükkan detayları (google maps vs üstüne basınca harita konumunu gösterecek açık adresini alta yazacak yada hakkında kısmına koyalım)
-    - Sepet (ürünleri toplu satın alma imkanı tanıyacaz ve hepsi qr da saklı olacak)
     - Profil ekranı 
     - Splash screenler (ilk girenler için)
     - Bize ulaşın gibi bir şey bize öneri şikayet gönderebilecekleri bir şey

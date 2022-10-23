@@ -16,7 +16,8 @@ import Carousel from 'react-native-reanimated-carousel';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { useNavigation } from "@react-navigation/native";
-import { getCart, addToCart, clearCart, updateCart } from './../Functions/Cart';
+import { useDispatch } from 'react-redux';
+import { Cart } from './../Functions/Cart';
 
 
 const array = [
@@ -28,18 +29,16 @@ const array = [
   },
 ]
 
-// addToCart({id:2,quantity:3})
 
-// updateCart({id:2,quantity:0})
-
-// getCart().then(r => {
-//   console.log(r)
-// })
 
 // clearCart()
 
 export function HomeScreen() {
-
+  const dispatch = useDispatch()
+  var cart = new Cart(dispatch);
+  React.useLayoutEffect(() => {
+    cart.addToCart({id:1,quantity:1})
+  })
   const width = Dimensions.get('window').width;
 
   var navigation = useNavigation();
